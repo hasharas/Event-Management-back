@@ -7,6 +7,8 @@ import com.codeWithProject.employee.repository.EmployeeRepository;
 
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 
@@ -17,5 +19,9 @@ public class EmployeeService {
       public Employee postEmployee(Employee employee) {
 
             return employeeRepository.save(employee);
+
+      }
+      public List<Employee> getAllEmployees(){
+            return employeeRepository.findAll();
       }
 }
