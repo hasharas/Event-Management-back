@@ -41,4 +41,10 @@ public class EmployeeController {
                   return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_FOUND);
             }
       }
+
+      public ResponseEntity<?> getEmployeeById(@PathVariable Long id){
+            Employee employee = employeeService.getEmployeeById(id);
+            if(employee == null) return ResponseEntity.notFound().build();
+            return ResponseEntity.ok(employee);
+      }
 }
