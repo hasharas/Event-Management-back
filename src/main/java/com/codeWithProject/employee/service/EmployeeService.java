@@ -37,4 +37,20 @@ public class EmployeeService {
             return employeeRepository.findById(id).orElse(null);
       }
 
+      public Employee updateEmployee(Long id,Employee employee){
+            optional<Employee> optionalEmployee = employeeRepository.findById(id);
+            if(optionalEmployee.isPresent()){
+                  Employee existingEmployee = optionalEmployee.get();
+
+                  existingEmployee.setEmail(employee.getEmail());
+                  existingEmployee.setName(employee.getName());
+                  existingEmployee.setPhone(employee.getPhone());
+                  existingEmployee.setDepartment(employee.getDepartment());
+
+                  return employeeRepository.save(existingEmployee);
+            }
+            return null;
+
+      }
+
 }
