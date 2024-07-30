@@ -9,6 +9,7 @@ import com.codeWithProject.employee.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -38,7 +39,7 @@ public class EmployeeService {
       }
 
       public Employee updateEmployee(Long id,Employee employee){
-            optional<Employee> optionalEmployee = employeeRepository.findById(id);
+            Optional<Employee> optionalEmployee = employeeRepository.findById(id);
             if(optionalEmployee.isPresent()){
                   Employee existingEmployee = optionalEmployee.get();
 
